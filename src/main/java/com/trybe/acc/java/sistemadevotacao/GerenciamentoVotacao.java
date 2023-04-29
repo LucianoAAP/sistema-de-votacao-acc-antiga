@@ -57,8 +57,8 @@ public class GerenciamentoVotacao {
    * Cadastra pessoa eleitora.
    */
   public void cadastrarPessoaEleitora(String nome, String cpf) {
-    for (PessoaEleitora pessoaEleitora : this.pessoasEleitoras) {      
-      if (pessoaEleitora.getCpf() == cpf) {
+    for (PessoaEleitora pessoaEleitora : this.pessoasEleitoras) {
+      if (pessoaEleitora.getCpf().equals(cpf)) {
         System.out.println("Pessoa eleitora já cadastrada!");
         return;
       }
@@ -77,6 +77,7 @@ public class GerenciamentoVotacao {
     for (PessoaCandidata pessoaCandidata : this.pessoasCandidatas) {
       if (pessoaCandidata.getNumero() == numeroPessoaCandidata) {
         pessoaCandidata.receberVoto();
+        System.out.println(pessoaCandidata.getVotos());
         break;
       }
     }
@@ -94,13 +95,14 @@ public class GerenciamentoVotacao {
     }
     for (int index = 0; index < this.pessoasCandidatas.size(); index += 1) {
       PessoaCandidata pessoaCandidata = this.pessoasCandidatas.get(index);
-      System.out.println(String.format("Nome: %s - %s votos (%s)",
-          pessoaCandidata.getNome(), pessoaCandidata.getVotos(), calcularPorcentagemVotos(index)));
+      System.out.println(String.format("Nome: %s - %s votos ( %s", pessoaCandidata.getNome(),
+          pessoaCandidata.getVotos(), calcularPorcentagemVotos(index)) + "% )");
     }
     System.out.println(String.format("Total de votos: %s", this.totalVotos));
   }
   
   private double calcularPorcentagemVotos(int index) {
-    return Math.round(pessoasCandidatas.get(index).getVotos() / this.totalVotos * 100);
+    double percentage = (double) pessoasCandidatas.get(index).getVotos() / this.totalVotos * 100;
+    return Math.round(percentage);
   }
 }

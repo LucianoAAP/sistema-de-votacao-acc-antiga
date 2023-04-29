@@ -11,21 +11,26 @@ public class GerenciamentoVotacao {
   public ArrayList<PessoaCandidata> getPessoasCandidatas() {
     return pessoasCandidatas;
   }
+
   public void setPessoasCandidatas(ArrayList<PessoaCandidata> pessoasCandidatas) {
     this.pessoasCandidatas = pessoasCandidatas;
   }
+
   public ArrayList<PessoaEleitora> getPessoasEleitoras() {
     return pessoasEleitoras;
   }
+
   public void setPessoasEleitoras(ArrayList<PessoaEleitora> pessoasEleitoras) {
     this.pessoasEleitoras = pessoasEleitoras;
   }
+
   public ArrayList<String> getCpfComputado() {
     return cpfComputado;
   }
   public void setCpfComputado(ArrayList<String> cpfComputado) {
     this.cpfComputado = cpfComputado;
   }
+
   public int getTotalVotos() {
     return totalVotos;
   }
@@ -33,6 +38,9 @@ public class GerenciamentoVotacao {
     this.totalVotos = totalVotos;
   }
   
+  /**
+   * Cadastra pessoa candidata.
+   */
   public void cadastrarPessoaCandidata(String nome, int numero) {
     for (PessoaCandidata pessoaCandidata : this.pessoasCandidatas) {      
       if (pessoaCandidata.getNumero() == numero) {
@@ -43,6 +51,9 @@ public class GerenciamentoVotacao {
     this.pessoasCandidatas.add(new PessoaCandidata(nome, numero));
   }
   
+  /**
+   * Cadastra pessoa eleitora.
+   */
   public void cadastrarPessoaEleitora(String nome, String cpf) {
     for (PessoaEleitora pessoaEleitora : this.pessoasEleitoras) {      
       if (pessoaEleitora.getCpf() == cpf) {
@@ -53,6 +64,9 @@ public class GerenciamentoVotacao {
     this.pessoasEleitoras.add(new PessoaEleitora(nome, cpf));
   }
   
+  /**
+   * Registra voto.
+   */
   public void votar(String cpfPessoaEleitora, int numeroPessoaCandidata) {
     if (this.cpfComputado.contains(cpfPessoaEleitora)) {
       System.out.println("Pessoa eleitora já votou!");
@@ -68,6 +82,9 @@ public class GerenciamentoVotacao {
     this.totalVotos += 1;
   }
   
+  /**
+   * Mostra o resultado da votação.
+   */
   public void mostrarResultado() {
     if (this.totalVotos == 0) {
       System.out.println("É preciso ter pelo menos um voto para mostrar o resultado.");
@@ -75,7 +92,8 @@ public class GerenciamentoVotacao {
     }
     for (int index = 0; index < this.pessoasCandidatas.size(); index += 1) {
       PessoaCandidata pessoaCandidata = this.pessoasCandidatas.get(index);
-      System.out.println(String.format("Nome: %s - %s votos (%s)", pessoaCandidata.getNome(), pessoaCandidata.getVotos(), calcularPorcentagemVotos(index)));
+      System.out.println(String.format("Nome: %s - %s votos (%s)",
+          pessoaCandidata.getNome(), pessoaCandidata.getVotos(), calcularPorcentagemVotos(index)));
     }
     System.out.println(String.format("Total de votos: %s", this.totalVotos));
   }

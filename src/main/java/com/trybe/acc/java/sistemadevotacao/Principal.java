@@ -5,8 +5,10 @@ import java.util.Scanner;
 
 public class Principal {
 
+  /**
+   * Método principal.
+   */
   public static void main(String[] args) {
-    // TODO Auto-generated method stub
     Scanner scanner = new Scanner(System.in);
     GerenciamentoVotacao gerenciamentoVotacao = new GerenciamentoVotacao();
     System.out.println("----------- Bem-vindo ao Sistema de Votação -----------");
@@ -14,6 +16,9 @@ public class Principal {
     showRegisterCandidateMenu(scanner, gerenciamentoVotacao);
   }
 
+  /**
+   * Mensagem do registro da pessoa candidata.
+   */
   private static void showRegisterCandidateMessage() {
     System.out.println("Cadastrar pessoa candidata?");
     System.out.println("1 - Sim");
@@ -21,6 +26,9 @@ public class Principal {
     System.out.println("Entre com o número correspondente à opção desejada:");
   }
   
+  /**
+   * Mensagem do registro da pessoa eleitora.
+   */
   private static void showRegisterVoterMessage() {
     System.out.println("Cadastrar pessoa eleitora?");
     System.out.println("1 - Sim");
@@ -28,6 +36,9 @@ public class Principal {
     System.out.println("Entre com o número correspondente à opção desejada:");
   }
   
+  /**
+   * Mensagem do início da votação.
+   */
   private static void showVotingMessage() {
     System.out.println("Entre com o número correspondente à opção desejada:");
     System.out.println("1 - Votar");
@@ -35,7 +46,11 @@ public class Principal {
     System.out.println("3 - Finalizar Votação");
   }
   
-  private static void showRegisterCandidateMenu(Scanner scanner, GerenciamentoVotacao gerenciamentoVotacao) {
+  /**
+   * Menu do registro da pessoa candidata.
+   */
+  private static void showRegisterCandidateMenu(Scanner scanner,
+      GerenciamentoVotacao gerenciamentoVotacao) {
     try {
       showRegisterCandidateMessage();
       int option = scanner.nextInt();
@@ -62,7 +77,11 @@ public class Principal {
     }
   }
   
-  private static void showRegisterVoterMenu(Scanner scanner, GerenciamentoVotacao gerenciamentoVotacao) {
+  /**
+   * Menu do registro da pessoa eleitora.
+   */
+  private static void showRegisterVoterMenu(Scanner scanner,
+      GerenciamentoVotacao gerenciamentoVotacao) {
     try {
       showRegisterVoterMessage();
       int option = scanner.nextInt();
@@ -89,6 +108,9 @@ public class Principal {
     }
   }
   
+  /**
+   * Menu da votação.
+   */
   private static void showVotingMenu(Scanner scanner, GerenciamentoVotacao gerenciamentoVotacao) {
     try {
       showVotingMessage();

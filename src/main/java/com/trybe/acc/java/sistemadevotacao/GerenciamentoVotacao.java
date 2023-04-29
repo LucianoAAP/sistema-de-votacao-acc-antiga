@@ -27,6 +27,7 @@ public class GerenciamentoVotacao {
   public ArrayList<String> getCpfComputado() {
     return cpfComputado;
   }
+
   public void setCpfComputado(ArrayList<String> cpfComputado) {
     this.cpfComputado = cpfComputado;
   }
@@ -34,6 +35,7 @@ public class GerenciamentoVotacao {
   public int getTotalVotos() {
     return totalVotos;
   }
+
   public void setTotalVotos(int totalVotos) {
     this.totalVotos = totalVotos;
   }

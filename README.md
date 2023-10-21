@@ -1,1 +1,1 @@
-Um projeto que eu fiz no curso de aceleração em java da Trybe. Mais detalhes ainda por vir.
+Um projeto que eu fiz no curso de aceleração em java da Trybe. Mais detalhes ainda por vir..

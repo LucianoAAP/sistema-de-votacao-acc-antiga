@@ -77,7 +77,6 @@ public class GerenciamentoVotacao {
     for (PessoaCandidata pessoaCandidata : this.pessoasCandidatas) {
       if (pessoaCandidata.getNumero() == numeroPessoaCandidata) {
         pessoaCandidata.receberVoto();
-        System.out.println(pessoaCandidata.getVotos());
         break;
       }
     }
